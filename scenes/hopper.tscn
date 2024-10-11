@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnupt6rikljvh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rnmkv"]
+bounce = 0.5
+
+[node name="Hopper" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_rnmkv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(61, 408)
+scale = Vector2(1, 0.515625)
+polygon = PackedVector2Array(-61, -115, 125, 422.788, 125, 605, -61, 605)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(260, 444)
+scale = Vector2(0.719907, 0.457465)
+polygon = PackedVector2Array(34.7267, 406.588, 305.595, -117, 305.595, 603, 34.7267, 603)

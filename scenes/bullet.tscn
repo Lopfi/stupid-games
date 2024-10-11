@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckmkipembdcku"]
+
+[ext_resource type="Texture2D" uid="uid://7ta3aikvufaw" path="res://art/playerGrey_walk1.png" id="1_ge4j1"]
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_wgl1m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3d0pi"]
+radius = 6.0
+height = 14.0
+
+[node name="Bullet" type="RigidBody2D"]
+script = ExtResource("1_wgl1m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -1.90735e-06)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ge4j1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3d0pi")
+disabled = true

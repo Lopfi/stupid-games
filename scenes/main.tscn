@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnr5kuugcmo77"]
+
+[ext_resource type="PackedScene" uid="uid://dnupt6rikljvh" path="res://scenes/hopper.tscn" id="1_af3ti"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_opxa6"]
+[ext_resource type="PackedScene" uid="uid://v5slo3bi0po4" path="res://scenes/player.tscn" id="2_tay4w"]
+[ext_resource type="PackedScene" uid="uid://cw60j1q34qdfq" path="res://scenes/multiplier.tscn" id="3_sv6dj"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_opxa6")
+
+[node name="Map" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Map"]
+offset_right = 480.0
+offset_bottom = 720.0
+
+[node name="Hopper" parent="Map" instance=ExtResource("1_af3ti")]
+
+[node name="Multiplier0" parent="Map" instance=ExtResource("3_sv6dj")]
+position = Vector2(361, 360)
+
+[node name="Multiplier1" parent="Map" instance=ExtResource("3_sv6dj")]
+position = Vector2(156, 342)
+multiplier = 2
+
+[node name="Player" parent="." instance=ExtResource("2_tay4w")]
+position = Vector2(90, 200)
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[connection signal="drop_bullet" from="Map/Multiplier0" to="." method="_on_drop_bullet"]
+[connection signal="drop_bullet" from="Map/Multiplier1" to="." method="_on_drop_bullet"]
+[connection signal="drop_bullet" from="Player" to="." method="_on_drop_bullet"]
